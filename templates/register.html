@@ -14,8 +14,13 @@
         .container {
             display: grid;
             place-items: center;
-            height: 100dvh;
+            height: 100vh;
+            
         }
+        main{
+            background-color: aqua;
+        }
+      
     </style>
 </head>
 
@@ -44,10 +49,12 @@
                         <label for="formId1">password</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="password" class="confirm-password" name="confirmpassword" id="" placeholder="" />
+                        <input type="password" class="form-control " name="confirmpassword" id="" placeholder="" />
                         <label for="formId1">confirm password</label>
                     </div>
-                     <button class="btn btn-lg btn-primary">Register</button>
+                    <button class="btn btn-lg btn-primary">Register</button>
+                    already have a account!
+                    <a href="{% url 'login' %}">Login</a>
 
                 </form>
 

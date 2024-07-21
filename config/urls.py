@@ -18,13 +18,14 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from main.views import index, login_view, register_view
+from main.views import index, login_view, register_view, logout_view
 urlpatterns = [
     path("__reload__/", include("django_browser_reload.urls")),
     path('admin/', admin.site.urls),
     path("", index, name="index"),
     path("login", login_view, name="login"),
     path("register", register_view, name="register"),
+    path('logout', logout_view, name="logout")
     
 ]
 

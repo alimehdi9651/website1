@@ -12,7 +12,7 @@ def login_view(request):
         user = authenticate(username=username, password=password)
         if user:
              login(request, user)
-             return redirect(request, 'login.html')
+             return redirect('index')
              
     return render(request, 'login.html')
 def register_view(request):
@@ -20,7 +20,7 @@ def register_view(request):
               username = request.POST.get('username')
               password = request.POST.get('password')
               email = request.POST.get('email')
-              confirmpassword = request.POST.get('confirm-password')
+              confirmpassword = request.POST.get('confirmpassword')
               print(username, email,password, confirmpassword)
               if password == confirmpassword:
                    user = User(username = username, email= email)
@@ -29,4 +29,8 @@ def register_view(request):
                    return redirect('login')
             
          return render(request, 'register.html')
+def logout_view(request):
+     logout(request)
+     return redirect('index')
+     
  
