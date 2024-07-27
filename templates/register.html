@@ -18,7 +18,10 @@
             
         }
         main{
-            background-color: aqua;
+            background-color: grey;
+        }
+        #login{
+            color: black;
         }
       
     </style>
@@ -54,7 +57,7 @@
                     </div>
                     <button class="btn btn-lg btn-primary">Register</button>
                     already have a account!
-                    <a href="{% url 'login' %}">Login</a>
+                    <a id="login" href="{% url 'login' %}">Login</a>
 
                 </form>
 
