@@ -18,7 +18,9 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from main.views import index, login_view, register_view, logout_view, add_task, complete_task
+from main.views import (index, login_view, register_view, logout_view, add_task, complete_task,
+                        movies_view, movie_add_view, movie_delete_view, 
+                        movie_search_view, movie_edit_view)
 urlpatterns = [
     path("__reload__/", include("django_browser_reload.urls")),
     path('admin/', admin.site.urls),
@@ -28,7 +30,12 @@ urlpatterns = [
     path('logout', logout_view, name="logout"),
     path('add/', add_task, name = 'add_task'),
     path('complete/<int:id>/', complete_task, name='complete'),
-    
+    # crud operations
+    path('movies/view', movies_view, name='view_movies'),
+    path('movies/add', movie_add_view, name='add_movies'),
+    path('movies/edit/<int:id>/', movie_edit_view, name='edit_movies'),
+    path('movies/delete<int:id>/', movie_delete_view, name='delete_movies'),
+    path('movies/search', movie_search_view, name='search_movies'),
 ]
 
 if settings.DEBUG:
