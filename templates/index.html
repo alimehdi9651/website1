@@ -39,7 +39,8 @@
             <ul class="list-group mt-4">
                 {% for item in task %}
                 {% if not item.completed %}
-                <li class="list-group-item d-flex">
+                
+                <li class="list-group-item d-flex"> 
                     {{item.name}}
                     <a class="nav-link fw-bolder" href="{% url 'complete' item.id %}">X</a>
                 </li>
@@ -51,7 +52,6 @@
                 {% empty %}
                 <li class="list-group-item">No task added</li>
                 {% endfor %}
-
             </ul>
         </div>
     </main>
