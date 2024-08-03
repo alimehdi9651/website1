@@ -32,10 +32,10 @@ urlpatterns = [
     path('complete/<int:id>/', complete_task, name='complete'),
     # crud operations
     path('movies/view', movies_view, name='view_movies'),
-    path('movies/add', movie_add_view, name='add_movies'),
-    path('movies/edit/<int:id>/', movie_edit_view, name='edit_movies'),
-    path('movies/delete<int:id>/', movie_delete_view, name='delete_movies'),
-    path('movies/search', movie_search_view, name='search_movies'),
+    path('movies/add', movie_add_view, name='add_movie'),
+    path('movies/edit/<int:id>/', movie_edit_view, name='edit_movie'),
+    path('movies/delete<int:id>/', movie_delete_view, name='delete_movie'),
+    path('movies/search', movie_search_view, name='search_movie'),
 ]
 
 if settings.DEBUG:

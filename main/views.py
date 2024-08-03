@@ -65,7 +65,7 @@ def movies_view(request):
 
 def movie_add_view(request):
      form = MovieForm()
-     if request.mothod == 'POST':
+     if request.method == 'POST':
           form = MovieForm(request.POST, request.FILES)
           if form.is_valid():
                form.save()
@@ -75,7 +75,6 @@ def movie_add_view(request):
      })
 
 
-     
      
      
 def movie_edit_view(request, id):
