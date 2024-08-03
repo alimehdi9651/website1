@@ -18,9 +18,11 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from main.views import (index, login_view, register_view, logout_view, add_task, complete_task,
-                        movies_view, movie_add_view, movie_delete_view, 
+from main.views import (index, login_view, register_view, logout_view, add_task,
+                         complete_task,movies_view, movie_add_view, movie_delete_view, 
                         movie_search_view, movie_edit_view)
+
+
 urlpatterns = [
     path("__reload__/", include("django_browser_reload.urls")),
     path('admin/', admin.site.urls),
