@@ -80,11 +80,12 @@ def movie_add_view(request):
 def movie_edit_view(request, id):
      movie = Movie.objects.get(id=id)
      form = MovieForm(instance = movie)
-     form = MovieForm(request.POST, request.FILES, instance=movie)
-     if form.is_valid():
-          form.save()
-          return redirect('view_movies')
-     return render(request, 'movies/add.html',{
+     if request.method == 'POST':
+          form = MovieForm(request.POST, request.FILES, instance=movie)
+          if form.is_valid():
+               form.save()
+               return redirect('view_movies')
+     return render(request, 'movies/edit.html',{
           'form':form
      })
      
@@ -95,5 +96,11 @@ def movie_delete_view(request, id):
      return redirect('view_movies')
 
 def movie_search_view(request):
-     return render(request, 'movies/search_html')
+     if request.method == 'POST':
+          query = request.POST.get('query')
+          movies = Movie.objects.filter(title__icontains=query)
+          return render(request, 'movies/search.html', {
+               'movies': movies,
+          })
+     return render(request, 'movies/search.html')
 
