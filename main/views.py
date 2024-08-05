@@ -75,8 +75,6 @@ def movie_add_view(request):
      })
 
 
-     
-     
 def movie_edit_view(request, id):
      movie = Movie.objects.get(id=id)
      form = MovieForm(instance = movie)
